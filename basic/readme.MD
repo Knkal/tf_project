@@ -67,10 +67,10 @@ indicated with the following symbols:
 
 Terraform will perform the following actions:
 
-  # aws_security_group.ai-cp2-15-sg will be created
-  + resource "aws_security_group" "ai-cp2-15-sg" {
+  # aws_security_group.ai-cp2-05-sg will be created
+  + resource "aws_security_group" "ai-cp2-05-sg" {
       + arn                    = (known after apply)
-      + description            = "ai-cp2-15 security group"
+      + description            = "ai-cp2-05 security group"
       + egress                 = [
           + {
               + cidr_blocks      = [
@@ -115,7 +115,7 @@ Terraform will perform the following actions:
               + to_port          = 22
             },
         ]
-      + name                   = "ai-cp2-15-sg"
+      + name                   = "ai-cp2-05-sg"
       + name_prefix            = (known after apply)
       + owner_id               = (known after apply)
       + region                 = "ap-northeast-2"
@@ -141,8 +141,8 @@ indicated with the following symbols:
 
 Terraform will perform the following actions:
 
-  # aws_instance.ai-cp2-15-ec2 will be created
-  + resource "aws_instance" "ai-cp2-15-ec2" {
+  # aws_instance.ai-cp2-05-ec2 will be created
+  + resource "aws_instance" "ai-cp2-5-ec2" {
       + ami                                  = "ami-05d406896d0284d57"
       + arn                                  = (known after apply)
       + associate_public_ip_address          = (known after apply)
@@ -163,7 +163,7 @@ Terraform will perform the following actions:
       + instance_type                        = "t3.micro"
       + ipv6_address_count                   = (known after apply)
       + ipv6_addresses                       = (known after apply)
-      + key_name                             = "ai-cp2-25-key"
+      + key_name                             = "ai-cp2-05-key"
       + monitoring                           = (known after apply)
       + outpost_arn                          = (known after apply)
       + password_data                        = (known after apply)
@@ -182,10 +182,10 @@ Terraform will perform the following actions:
       + spot_instance_request_id             = (known after apply)
       + subnet_id                            = "subnet-049c8f72bb109a11e"
       + tags                                 = {
-          + "Name" = "ai-cp2-15-ec2"
+          + "Name" = "ai-cp2-05-ec2"
         }
       + tags_all                             = {
-          + "Name" = "ai-cp2-15-ec2"
+          + "Name" = "ai-cp2-05-ec2"
         }
       + tenancy                              = (known after apply)
       + user_data_base64                     = (known after apply)
@@ -219,10 +219,10 @@ Terraform will perform the following actions:
       + secondary_network_interface (known after apply)
     }
 
-  # aws_security_group.ai-cp2-15-sg will be created
-  + resource "aws_security_group" "ai-cp2-15-sg" {
+  # aws_security_group.ai-cp2-05-sg will be created
+  + resource "aws_security_group" "ai-cp2-05-sg" {
       + arn                    = (known after apply)
-      + description            = "ai-cp2-15 security group"
+      + description            = "ai-cp2-05 security group"
       + egress                 = [
           + {
               + cidr_blocks      = [
@@ -267,7 +267,7 @@ Terraform will perform the following actions:
               + to_port          = 22
             },
         ]
-      + name                   = "ai-cp2-15-sg"
+      + name                   = "ai-cp2-05-sg"
       + name_prefix            = (known after apply)
       + owner_id               = (known after apply)
       + region                 = "ap-northeast-2"

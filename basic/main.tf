@@ -111,9 +111,12 @@ resource "aws_instance" "ai-cp2-05-ec2" {
         aws_security_group.ai-cp2-05-sg.id
     ]
     # 스토리지 생략
-    
-    
-  
+      
 }
 
 # 6. 탄력적 IP 적용(1차 버전에는 제외)
+resource "aws_eip" "ai-cp2-05-eip" {
+  # 연결할 ec2 인스턴스 id 지정
+  instance = aws_instance.ai-cp2-05-ec2.id
+  domain = "vpc"
+}
