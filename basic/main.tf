@@ -36,7 +36,7 @@ resource "aws_security_group" "ai-cp2-05-sg" {
     # 인바운드 규칙 ################
     # 외부 트레픽이 내부로 진입됨 -> 통과할 포트만 등록 -> 존재하는 만큼 추가함(규칙 추가)
     # 22, 80
-    ingress = {
+    ingress {
         # 프로토콜
         protocol = "tcp"
         # 포트
@@ -56,7 +56,7 @@ resource "aws_security_group" "ai-cp2-05-sg" {
         # 설명, 강의장에서만 접속
         description = "SSH"
     }    
-    ingress = {
+    ingress {
         protocol = "tcp"        
         from_port = 80
         to_port = 80
