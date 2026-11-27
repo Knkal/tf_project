@@ -79,7 +79,7 @@ resource "aws_security_group" "ai-cp2-05-sg" {
 }
 
 # 4. EC2 생성을 위한 AMI(Amazon Machine Image) 정보 조회()
-data "aws_ami "amazon_linux" {
+data "aws_ami" "amazon_linux" {
     # 최신 설정
     most_recent = true
     # 소유자
