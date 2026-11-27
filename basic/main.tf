@@ -67,7 +67,7 @@ resource "aws_security_group" "ai-cp2-05-sg" {
 
     # 아웃바운드 규칙 ################
     # 내부 트레픽이 외부로 나가는 규칙
-    egress = {
+    egress {
         # 모든 프로토콜 개발
         protocol = "-1"
         # 모든 포트 개방
