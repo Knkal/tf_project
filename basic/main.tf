@@ -98,25 +98,31 @@ data "aws_ami" "amazon_linux" {
 
 # 5. EC2 생성 선언
 resource "aws_instance" "ai-cp2-05-ec2" {
+  # 태그
   tags = {
     Name = "ai-cp2-05-ec2"
   }
   # AMI
-  ami           = data.aws_ami.amazon_linux.id
+  ami = data.aws_ami.amazon_linux.id
+  # 인스턴스 유형
   instance_type = var.instance_type
-  key_name      = var.key_name
-  subnet_id     = data.aws_subnets.default.ids[0]
-  # 보안 그룹
+  # 키페어
+  key_name = var.key_name
+  # 서브넷
+  subnet_id = data.aws_subnets.default.ids[0] # a,b,c,d중 첫번재 a동
+  # 보안그룹
   vpc_security_group_ids = [
     aws_security_group.ai-cp2-05-sg.id
   ]
   # 스토리지 생략
-
+  # 고급설정 생략
+  # IP는 임시적 동적 할당
 }
 
 # 6. 탄력적 IP 적용(1차 버전에는 제외)
 resource "aws_eip" "ai-cp2-05-eip" {
   # 연결할 ec2 인스턴스 id 지정
   instance = aws_instance.ai-cp2-05-ec2.id
-  domain   = "vpc"
+  # 네트워크
+  domain = "vpc"
 }

@@ -39,6 +39,11 @@ terraform init
 terraform validate
 ```
 
+- 옵션 : 형식 맞추기
+```
+terraform fmt
+```
+
 - step3 : 실행 계획 확인 (플래닝, 시뮬레이션)
 ```
 terraform plan
@@ -142,7 +147,7 @@ indicated with the following symbols:
 Terraform will perform the following actions:
 
   # aws_instance.ai-cp2-05-ec2 will be created
-  + resource "aws_instance" "ai-cp2-5-ec2" {
+  + resource "aws_instance" "ai-cp2-05-ec2" {
       + ami                                  = "ami-05d406896d0284d57"
       + arn                                  = (known after apply)
       + associate_public_ip_address          = (known after apply)
