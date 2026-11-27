@@ -23,12 +23,12 @@ data "aws_subnets" "default" {
 }
 
 # 3. 보안그룹 생성 선언
-resource "aws_security_group" "ai-cp2-15-sg" {
+resource "aws_security_group" "ai-cp2-05-sg" {
   # 기본 세부 정보 ###########
   # 이름
-  name = "ai-cp2-15-sg"
+  name = "ai-cp2-05-sg"
   # 설명-ASCII만 지원. 한글 x
-  description = "ai-cp2-15 security group"
+  description = "ai-cp2-05 security group"
   # 보안그룹이 속한 vpc 지정
   vpc_id = data.aws_vpc.default.id
   
@@ -97,5 +97,23 @@ data "aws_ami" "amazon_linux" {
 }
 
 # 5. EC2 생성 선언
+resource "aws_instance" "ai-cp2-05-ec2" {
+    tags = {
+        Name = "ai-cp2-05-ec2"
+    }
+    # AMI
+    ami = data.aws_ami.amazon_linux.id
+    instance_type = var.instance_type
+    key_name = var.key_name
+    subnet_id = data.aws_subnets.default.ids[0]
+    # 보안 그룹
+    vpc_security_group_ids = [
+        aws_security_group.ai-cp2-05-sg.id
+    ]
+    # 스토리지 생략
+    
+    
+  
+}
 
 # 6. 탄력적 IP 적용(1차 버전에는 제외)
